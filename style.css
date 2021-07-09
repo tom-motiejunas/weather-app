@@ -13,7 +13,6 @@
 body {
   background-color: var(--main-color);
   font-family: "Oxygen", sans-serif;
-  overflow: hidden;
 }
 
 nav {
@@ -28,7 +27,7 @@ nav {
 .search-bar {
   display: flex;
   justify-content: center;
-  height: 70px;
+  height: 60px;
 }
 
 .search-bar button {
@@ -42,9 +41,8 @@ nav {
 .search-bar input {
   opacity: 0.6;
   border: none;
-  font-size: 40px;
+  font-size: 30px;
   padding: 0.5rem;
-  min-width: 700px;
   text-align: center;
 }
 
@@ -129,10 +127,11 @@ main {
 
 main img {
   margin: 3rem 0;
+  height: 200px;
 }
 
 main h1 {
-  font-size: 80px;
+  font-size: 60px;
 }
 
 footer {

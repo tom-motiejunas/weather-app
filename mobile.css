@@ -1,0 +1,17 @@
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+  }
+  nav {
+    flex-direction: column;
+  }
+  .search-bar {
+    padding-bottom: 1rem;
+  }
+  .search-bar input {
+    width: 300px;
+  }
+  .settings {
+    width: 70px;
+  }
+}

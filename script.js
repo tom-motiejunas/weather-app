@@ -1,4 +1,5 @@
 const accessToken = "pk.4bf7535e453668f0a4691ab77526e028";
+let city;
 
 const geo = navigator.geolocation;
 const currPos = geo.getCurrentPosition(
@@ -10,8 +11,7 @@ const currPos = geo.getCurrentPosition(
         `https://eu1.locationiq.com/v1/reverse.php?key=${accessToken}&lat=${latitude}&lon=${longitude}&format=json`
       );
       const data = await response.json();
-      const city = data.address.city;
-      console.log(city);
+      city = data.address.city;
       setCity(city);
       weatherData(city);
     } catch (err) {
@@ -19,7 +19,11 @@ const currPos = geo.getCurrentPosition(
     }
   },
   (err) => {
-    console.error("Could't get your position", err);
+    errMsg.textContent = `Could't get your position 😢 ${err.message}`;
+    errBox.classList.add("visable");
+    setTimeout(() => {
+      errBox.classList.remove("visable");
+    }, 10000);
   }
 );
 
@@ -68,6 +72,8 @@ const mainImg = document.querySelector(".main-img");
 const searchBar = document.querySelector(".search-bar input");
 const searchBtn = document.querySelector(".search-bar button");
 const degToggle = document.querySelector(".slider");
+const errBox = document.querySelector(".err-box");
+const errMsg = document.querySelector(".err-msg");
 
 let isCelcius = true;
 let forecast;
@@ -90,7 +96,14 @@ const weatherData = async function (city = "Vilnius") {
     setTempValues("c", forecast);
     setTemperature(forecast);
   } catch (err) {
-    console.log(err);
+    if (err.message === "data.forecast is undefined") {
+      err.message = "Couldn't find the city";
+    }
+    errMsg.textContent = `Could't get weather 😢 ${err.message}`;
+    errBox.classList.add("visable");
+    setTimeout(() => {
+      errBox.classList.remove("visable");
+    }, 10000);
   }
 };
 

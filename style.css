@@ -7,15 +7,11 @@
 }
 
 :root {
-  --sunny-day: #fcc9c5;
-  --rainy-day: #b9cbd9;
-  --cloudy-day: #eae7e2;
-  --snowy-day: #cfe3e2;
-  --thundery-day: #e2d1ef;
+  --main-color: #aaa;
 }
 
 body {
-  background-color: var(--sunny-day);
+  background-color: var(--main-color);
   font-family: "Oxygen", sans-serif;
 }
 

@@ -93,7 +93,7 @@ const weatherData = async function (city = "Vilnius") {
     );
     const data = await response.json();
     forecast = data.forecast.forecastday;
-    setTempValues("c", forecast);
+    setTempValues(isCelcius, forecast);
     setTemperature(forecast);
   } catch (err) {
     if (err.message === "data.forecast is undefined") {
@@ -166,5 +166,6 @@ searchBtn.addEventListener("click", function () {
 
 degToggle.addEventListener("click", function () {
   isCelcius = !isCelcius;
+  if (!forecast) return;
   setTempValues(isCelcius, forecast);
 });

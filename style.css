@@ -145,11 +145,19 @@ footer {
 footer .container {
   justify-content: space-around;
 }
-
+footer .container > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 footer .container h2 {
   padding-bottom: 0.5rem;
 }
-
+.weather-condition {
+  height: 75px;
+  width: 75px;
+}
 .err-box {
   display: flex;
   align-items: center;
@@ -168,4 +176,8 @@ footer .container h2 {
 
 .visable {
   display: flex;
+}
+
+.hidden {
+  display: none;
 }

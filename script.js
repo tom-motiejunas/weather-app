@@ -74,6 +74,7 @@ const searchBtn = document.querySelector(".search-bar button");
 const degToggle = document.querySelector(".slider");
 const errBox = document.querySelector(".err-box");
 const errMsg = document.querySelector(".err-msg");
+const weatherCond = document.querySelectorAll(".weather-condition");
 
 let isCelcius = true;
 let forecast;
@@ -144,6 +145,9 @@ const setTempValues = function (deg, arrTemp) {
   mainTemp.textContent = Math.round(mainTemp.textContent) + "°";
 
   displayWeekdays.forEach((el, index) => {
+    weatherCond[index].classList.remove("hidden");
+    weatherCond[index].src = arrTemp[index].day.condition.icon;
+
     let max = isCelcius
       ? arrTemp[index].day.maxtemp_c
       : arrTemp[index].day.maxtemp_f;
